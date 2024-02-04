@@ -12,6 +12,7 @@ public class ExceptionsDemo {
      * method could throw a method and needs a try catch block to handle it.
      * 
      */
+	//in a try block, you write core which could have an error. In the catch block, you say what the program should do if there is an error
 
     public static void testFiveOrGreater(int x) throws Exception {
         if (x < 5) {
