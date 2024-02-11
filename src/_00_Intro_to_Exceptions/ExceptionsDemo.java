@@ -1,5 +1,7 @@
 package _00_Intro_to_Exceptions;
 
+import javax.swing.JOptionPane;
+
 public class ExceptionsDemo {
 
     /*
@@ -12,7 +14,7 @@ public class ExceptionsDemo {
      * method could throw a method and needs a try catch block to handle it.
      * 
      */
-	//in a try block, you write core which could have an error. In the catch block, you say what the program should do if there is an error
+	//in a try block, you write code which could have an error. In the catch block, you say what the program should do if there is an error
 
     public static void testFiveOrGreater(int x) throws Exception {
         if (x < 5) {
@@ -40,8 +42,28 @@ public class ExceptionsDemo {
     public static void main(String[] args) {
 
         // 1. Create a try/catch block (Hint: type "try" and ctrl + space).
-
-        /*
+    	try {
+    		testPositive(5);
+    		testFiveOrGreater(5);
+			//first caught exception will result in the try block stopping
+			
+			
+		} catch (NegativeNumberException e) {
+			
+			System.out.println("NegativeNumberException successfully being caught");
+			e.scaryPopup();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Exception caught");
+			//why syso before stacktrace
+			
+		}finally {
+			JOptionPane.showMessageDialog(null,"your computer is most likely fine");
+		}
+        /*{
+         * 
          * 2. Call the testFiveOrGreater method with a value less than 5 inside
          * the try block.
          */
@@ -52,7 +74,7 @@ public class ExceptionsDemo {
          * red text.
          */
 
-        // 4. Run the program. Did the stack trace print out?
+        // 4. Run the program. Did the stack trace print out? jajaajajaa
 
     }
 
@@ -64,7 +86,14 @@ public class ExceptionsDemo {
      * JOptionPane Message Dialog telling the user they have triggered a
      * critical error in their computer.
      */
-
+    public static void testPositive(int n) throws NegativeNumberException {
+    	if(n < 0) {
+    		throw new NegativeNumberException();
+    	}else {
+    		JOptionPane.showMessageDialog(null, "positive number");
+    	}
+    	
+    }
     /*
      * 7. Create a static method in this class called testPositive. It should
      * take a single number as a parameter and throw a NegativeNumberException
@@ -86,7 +115,7 @@ public class ExceptionsDemo {
      * 9. When the NegativeNumberException is caught, use the caught exception
      * to call your scaryPopup method.
      * 
-     * 10. Try running the program. Did it show a pop-up?
+     * 10. Try running the program. Did it show a pop-up? //ye
      */
 
     /*

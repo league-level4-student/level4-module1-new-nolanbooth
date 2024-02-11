@@ -21,7 +21,7 @@ public class TextFunkifierTest {
      * 2. Implement the the TextFunkifier interface in MixedCapsString. Then
      * implement the funkifyText method so it returns the unfunkifiedText String
      * with alternating cases starting with lower case.
-     */
+     *///jajajajaja
 
     @Test
     public void testMixedCapsString() {

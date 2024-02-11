@@ -27,6 +27,7 @@ class GottaCatchemAll {
      * A NullPointerException occurs when code tries to use a reference type
      * variable that is uninitialized or otherwise has a value of null.
      */
+	
 
     private Robot rob;
 
@@ -34,7 +35,7 @@ class GottaCatchemAll {
     public void testNullPointerException() {
         try {
 
-            rob = new Robot();
+            rob = null;
 
             rob.setSpeed(100);
             rob.penDown();
@@ -63,7 +64,7 @@ class GottaCatchemAll {
 
         try {
 
-            for (int i = 0; i < intArray.length; i++) {
+            for (int i = 0; i < intArray.length+5; i++) {
                 System.out.println(intArray[i]);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -82,7 +83,7 @@ class GottaCatchemAll {
     public void testNumberFormatException() {
 
         try {
-            int answer = Integer.parseInt("42");
+            int answer = Integer.parseInt("42p"); //-> the thingy is mad about the p next to 42
 
             System.out.println(
                     "The answer to life, the universe and everything is... "
@@ -108,7 +109,7 @@ class GottaCatchemAll {
 
             Random rand = new Random();
             int dividend = rand.nextInt(9900) + 100;
-            int divisor = rand.nextInt(5400) + 100;
+            int divisor = 0;
             int quotient = dividend / divisor;
 
             System.out.println("The result of " + dividend + " divided by "

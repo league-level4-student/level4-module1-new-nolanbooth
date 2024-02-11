@@ -30,6 +30,10 @@ public abstract class AbstractClassDemo {
      * its abstract methods with the same method header minus the abstract
      * keyword.
      */
+    
+    
+    
+    
     public abstract void abstractDemo();
 
     /*
@@ -48,5 +52,5 @@ public abstract class AbstractClassDemo {
 
 /*
  * 1. Create a class that extends the AbstractClassDemo class and implement its
- * methods.
+ * methods. //legit takes 2 seconds
  */

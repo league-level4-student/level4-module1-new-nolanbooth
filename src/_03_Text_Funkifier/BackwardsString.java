@@ -1,6 +1,6 @@
 package _03_Text_Funkifier;
 
-public class BackwardsString implements TextFunkifier {
+public class BackwardsString implements TextFunkifier{
 
     private String unfunkifiedText;
 
@@ -12,8 +12,8 @@ public class BackwardsString implements TextFunkifier {
 
     @Override
     public String funkifyText() {
-
-        return null;
+    	StringBuilder bob = new StringBuilder(unfunkifiedText);
+        return bob.reverse().toString();
 
     }
 }
