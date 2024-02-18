@@ -44,6 +44,7 @@ public class TextFunkifierTest {
 
     @Test
     public void testCustomString() {
-
+    	BingusMingus bng = new BingusMingus("Bingus Mingus ");
+    	assertEquals("bingus", bng.funkifyText());
     }
 }

@@ -9,8 +9,8 @@ public class BingusMingus implements TextFunkifier{
 	}
 	@Override
 	public String funkifyText() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "bingus";
 	}
 
 }
