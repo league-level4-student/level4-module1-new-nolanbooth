@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
- 
+
 
 
 
@@ -96,6 +96,8 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 //        pols.add(movePoly);
        // bluePoly = new BluePolymorph(50, 50, WIDTH, HEIGHT);
        // redPoly = new RedPolymorph(50, 50, WIDTH, HEIGHT);
+       //pols.add(new BluePolymorph(50,50,WIDTH,HEIGHT));
+       pols.add(new MovingMorph(50,50, WIDTH, HEIGHT));
        
         timer = new Timer(1000 / 30, this);
         timer.start();
@@ -130,6 +132,11 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
+		int mx = e.getX();
+		int my = e.getY();
+		System.out.println(mx + ", " + my);
+		pols.get(0).setY(my);
+		pols.get(0).setX(mx);
 		
 	}
 

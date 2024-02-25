@@ -21,6 +21,14 @@ public abstract class Polymorph {
 
 	
 
+	public void update(int mx, int my) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
 	public abstract void update();
 
 	public abstract void draw(Graphics g);
@@ -81,11 +89,14 @@ class RedPolymorph extends Polymorph {
 class MovingMorph extends Polymorph implements MouseMotionListener {
 	public MovingMorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
+	
+	
+	
 	}
 	@Override
-	public void update() {
-		
-		
+	public void update(int mx, int my) {
+		setX(mx);
+		setY(my);
 	}
 	@Override
 	public void draw(Graphics g) {
@@ -102,6 +113,11 @@ class MovingMorph extends Polymorph implements MouseMotionListener {
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		
+		
+	}
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
 		
 	}
 }
