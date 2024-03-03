@@ -2,8 +2,14 @@ package _05_Polymorphs;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
+import javax.swing.JOptionPane;
 
 public abstract class Polymorph {
 	private int x;
@@ -74,7 +80,7 @@ class RedPolymorph extends Polymorph {
 
 		@Override
 		public void update() {
-			
+		
 			
 		}
 
@@ -89,15 +95,16 @@ class RedPolymorph extends Polymorph {
 class MovingMorph extends Polymorph implements MouseMotionListener {
 	public MovingMorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
-	
+		
 	
 	
 	}
-	@Override
-	public void update(int mx, int my) {
-		setX(mx);
-		setY(my);
-	}
+//	@Override
+//	public void update(int mx, int my) {
+//		setX(mx);
+//		setY(my);
+//		System.out.println("update method being called");
+//	}
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(Color.green);
@@ -119,7 +126,56 @@ class MovingMorph extends Polymorph implements MouseMotionListener {
 	public void update() {
 		// TODO Auto-generated method stub
 		
+		
 	}
+} class ClickMorph extends Polymorph implements MouseListener {
+	public ClickMorph(int x, int y, int width, int height) {
+		super (x, y, width, height);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		g.setColor(Color.blue);
+		g.fillRect(getX(), getY(), getWidth(), getHeight());
+	}
+	
 }
 
 

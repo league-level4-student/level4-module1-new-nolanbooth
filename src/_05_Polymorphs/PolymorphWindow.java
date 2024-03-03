@@ -11,6 +11,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -91,14 +92,12 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.pack();
         window.setVisible(true);
-//        pols.add(new BluePolymorph(50, 50, 50, 50));
-//        pols.add(new RedPolymorph);
-//        pols.add(movePoly);
-       // bluePoly = new BluePolymorph(50, 50, WIDTH, HEIGHT);
-       // redPoly = new RedPolymorph(50, 50, WIDTH, HEIGHT);
-       //pols.add(new BluePolymorph(50,50,WIDTH,HEIGHT));
+        window.addMouseMotionListener(this);
+        window.addMouseListener(this);
+        
+        
        pols.add(new MovingMorph(50,50, WIDTH, HEIGHT));
-       
+       pols.add(new ClickMorph(50, 50, WIDTH, HEIGHT));
         timer = new Timer(1000 / 30, this);
         timer.start();
     }
@@ -107,12 +106,10 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
         // draw background
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, 500, 500);
-
-        // draw polymorph
-       // bluePoly.draw(g);
-       // redPoly.draw(g);
+       
        for(int i = 0; i < pols.size(); i++) {
     	   pols.get(i).draw(g);
+    	   //System.out.println("update");
        }
         
         
@@ -121,8 +118,7 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
     @Override
     public void actionPerformed(ActionEvent e) {
         repaint();
-        //bluePoly.update();
-       // redPoly.update();
+   
         for(int i = 0; i < pols.size(); i++) {
         	pols.get(i).update();
         }
@@ -132,24 +128,33 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		int mx = e.getX();
-		int my = e.getY();
-		System.out.println(mx + ", " + my);
-		pols.get(0).setY(my);
-		pols.get(0).setX(mx);
+//		int mx = e.getX();
+//		int my = e.getY();
+//		System.out.println(mx + ", " + my);
+//		pols.get(0).setY(my);
+//		pols.get(0).setX(mx);
 		
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		for(int i = 0; i < pols.size(); i++) {
+			if(pols.get(i) instanceof MovingMorph) {
+				pols.get(i).setX(e.getX());
+				pols.get(i).setY(e.getY());
+			}
+		}
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		for(int i = 0; i < pols.size(); i++) {
+			if(pols.get(i) instanceof ClickMorph) {
+				JOptionPane.showMessageDialog(null, "RAAAR");
+			}
+		}
 	}
 
 	@Override
