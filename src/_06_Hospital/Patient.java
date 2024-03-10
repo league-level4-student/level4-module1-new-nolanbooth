@@ -13,6 +13,7 @@ public class Patient {
 		this.pulse = pulse;
 	}
 	public int checkPulse() {
+		setFeelsCaredFor(true);
 		return pulse;
 		
 		

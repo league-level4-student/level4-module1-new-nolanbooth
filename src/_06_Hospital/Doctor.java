@@ -14,9 +14,12 @@ public abstract class Doctor {
 
 	}
 
-	public void assignPatient(Patient patient) {
+	public void assignPatient(Patient patient) throws DoctorFullException {
+		if(numberOfPatients.size() >= 3) {
+			throw new DoctorFullException();
+		}else {
 		numberOfPatients.add(patient);
-
+		}
 	}
 
 	public ArrayList<Patient> getPatients() {
@@ -57,6 +60,6 @@ class Surgeon extends Doctor {
 	}
 
 	public boolean performsSurgery() {
-		return performsSurgery();
+		return performsSurgery;
 	}
 }
